@@ -29,7 +29,7 @@ namespace GeekBrains
 
         public void Display(int value)
         {
-            PlayerBall.CoinTake += OnPlayerCoinsChanged;
+            //PlayerBall.CoinTake += OnPlayerCoinsChanged;
             _coinLabel.text = $"Coins: {value}";
         }
 

@@ -6,6 +6,8 @@ namespace GeekBrains
 {
     public class JsonData<T> : IData<T>
     {
+        #region Methods
+
         public T Load(string path = null)
         {
             var str = File.ReadAllText(path);
@@ -17,5 +19,7 @@ namespace GeekBrains
             var str = JsonUtility.ToJson(data);
             File.WriteAllText(path, Crypto.CryptoXOR(str));
         }
+
+        #endregion
     }
 }

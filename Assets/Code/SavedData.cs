@@ -18,10 +18,7 @@ namespace GeekBrains
 
         #region Methods
 
-        public override string ToString()
-        {
-            return $"Name {Name} Position {Position} IsVisible {IsEnabled}";
-        }
+        public override string ToString() => $"Name {Name} Position {Position} IsVisible {IsEnabled}";
 
         #endregion
     }

@@ -17,7 +17,7 @@ namespace GeekBrains
                     result.Position.X = streamReader.ReadLine().TrySingle();
                     result.Position.Y = streamReader.ReadLine().TrySingle();
                     result.Position.Z = streamReader.ReadLine().TrySingle();
-                    result.IsEnabled = streamReader.ReadLine().TryBool():
+                    result.IsEnabled = streamReader.ReadLine().TryBool();
                 }
             }
             return result;

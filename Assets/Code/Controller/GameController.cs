@@ -51,6 +51,7 @@ namespace GeekBrains
                 if (item is Coins coin)
                 {
                     coin.OnPointChange += AddBonuse;
+                    coin.OnPointChange += _displayBonuses.Display;
                 }
             }
             _reference.RestartButton.onClick.AddListener(RestartGame);
@@ -95,6 +96,7 @@ namespace GeekBrains
                 if (item is Coins coins)
                 {
                     coins.OnPointChange -= AddBonuse;
+                    coins.OnPointChange -= _displayBonuses.Display;
                 }
             }
         }

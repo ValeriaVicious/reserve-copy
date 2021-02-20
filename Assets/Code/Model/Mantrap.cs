@@ -11,7 +11,18 @@ namespace GeekBrains
         #region Fields
 
         public event Action<string, Color> OnCaughtPlayerChange = delegate (string str, Color color) { };
-
+        public event EventHandler<Color> CaughtPlayer
+        {
+            add
+            {
+                _caughtPlayer += value;
+            }
+            remove
+            {
+                _caughtPlayer -= value;
+            }
+        }
+        private event EventHandler<Color> _caughtPlayer;
         private Material _material;
         private float _lengthFlay;
         private float _minFlayRange = 1.0f;

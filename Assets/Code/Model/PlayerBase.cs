@@ -3,7 +3,7 @@
 
 namespace GeekBrains
 {
-    public abstract class PlayerBase : Character
+    public abstract class PlayerBase : MonoBehaviour
     {
         #region Properties
 

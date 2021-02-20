@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 namespace GeekBrains
 {
-    public abstract class InteractiveObjects : MonoBehaviour, IExecute, IInteractable
+    public abstract class InteractiveObjects : MonoBehaviour, IExecute
     {
         #region Fields
 
@@ -20,6 +20,7 @@ namespace GeekBrains
         private void Start()
         {
             IsInterectable = true;
+            _color = Random.ColorHSV();
             if (TryGetComponent(out Renderer renderer))
             {
                 renderer.material.color = _color;
@@ -72,8 +73,6 @@ namespace GeekBrains
                 GetComponent<Collider>().enabled = _isInteractable;
             }
         }
-
-        public bool IsInteractable => throw new System.NotImplementedException();
 
         #endregion
     }

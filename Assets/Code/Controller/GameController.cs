@@ -16,7 +16,7 @@ namespace GeekBrains
         private CameraController _cameraController;
         private InputController _inputController;
         private Reference _reference;
-        private int _countBonuses;
+        private Coins _coin;
         private int _numberOfScene = 0;
 
         #endregion
@@ -27,6 +27,7 @@ namespace GeekBrains
         private void Awake()
         {
             _interactiveObject = new ListExecuteObject();
+            _coin = new Coins();
             _reference = new Reference();
 
             _cameraController = new CameraController(_reference.PlayerBall.transform,
@@ -70,6 +71,7 @@ namespace GeekBrains
                 }
                 interactiveObject.Execute();
             }
+            _displayBonuses.Display(_coin.Point);
         }
 
         #endregion
@@ -98,6 +100,7 @@ namespace GeekBrains
                     coins.OnPointChange -= AddBonuse;
                     coins.OnPointChange -= _displayBonuses.Display;
                 }
+                Destroy(gameObject);
             }
         }
 
@@ -109,8 +112,8 @@ namespace GeekBrains
 
         private void AddBonuse(int value)
         {
-            _countBonuses += value;
-            _displayBonuses.Display(_countBonuses);
+            _coin.Point += value;
+            _displayBonuses.Display(_coin.Point);
         }
 
 

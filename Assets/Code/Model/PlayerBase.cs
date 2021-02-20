@@ -34,10 +34,6 @@ namespace GeekBrains
         #endregion
 
 
-        #region UnityMethods
-        #endregion
-
-
         #region Methods
 
         public abstract void Move(float x, float y, float z);

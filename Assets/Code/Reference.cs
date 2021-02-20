@@ -80,7 +80,7 @@ namespace GeekBrains
         {
             get
             {
-                if(_gameWon == null)
+                if (_gameWon == null)
                 {
                     var gameObject = Resources.Load<GameObject>(_pathWonGame);
                     _gameWon = Object.Instantiate(gameObject, Canvas.transform);

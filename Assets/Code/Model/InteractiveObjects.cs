@@ -29,12 +29,16 @@ namespace GeekBrains
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!IsInterectable || other.CompareTag(PlayerTag))
+            if (!IsInterectable || !other.CompareTag(PlayerTag))
             {
                 return;
             }
-            Interaction();
-            IsInterectable = false;
+            else
+            {
+                Interaction();
+                IsInterectable = false;
+                Destroy(gameObject);
+            }
         }
 
         #endregion

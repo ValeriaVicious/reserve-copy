@@ -28,7 +28,7 @@ namespace GeekBrains
 
         public void GameWon()
         {
-            _wonGameLabel.text = $"You WON!";
+            _wonGameLabel.text = "You WON!";
         }
 
         #endregion

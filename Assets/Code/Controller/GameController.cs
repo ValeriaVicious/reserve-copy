@@ -18,6 +18,7 @@ namespace GeekBrains
         private Reference _reference;
         private Coins _coin;
         private int _numberOfScene = 0;
+        private int _maxPointCoin = 5;
 
         #endregion
 
@@ -71,7 +72,9 @@ namespace GeekBrains
                 }
                 interactiveObject.Execute();
             }
+
             _displayBonuses.Display(_coin.Point);
+            CheckCountPoint();
         }
 
         #endregion
@@ -116,6 +119,14 @@ namespace GeekBrains
             _displayBonuses.Display(_coin.Point);
         }
 
+        private void CheckCountPoint()
+        {
+            if (_coin.Point == _maxPointCoin)
+            {
+                _displayWon.GameWon();
+                Time.timeScale = 0;
+            }
+        }
 
         #endregion
     }

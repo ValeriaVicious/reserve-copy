@@ -11,10 +11,10 @@ namespace GeekBrains
 
         #region Fields
 
-        public event Action<int> OnPointChange = delegate (int i) { };
-        public int Point;
+        [SerializeField] private float _speedBonusPower = 3.0f;
+
         private Material _material;
-        private PlayerBase _player;
+        private PlayerBall _player;
         private float _speedRotation;
         private float _lengthFlay;
         private float _minFlayRange = 1.0f;
@@ -32,14 +32,15 @@ namespace GeekBrains
             _lengthFlay = Range(_minFlayRange, _maxFlayRange);
             _speedRotation = Range(_minRotationRange, _maxRotationRange);
             _material = GetComponent<Renderer>().material;
+            _player = gameObject.AddComponent<PlayerBall>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag(PlayerTag))
             {
-                Log("Woohoo");
                 Interaction();
+                Log($"Woohoo. Your speed is {_player.Speed}");
                 Destroy(gameObject);
             }
         }
@@ -51,7 +52,13 @@ namespace GeekBrains
 
         protected override void Interaction()
         {
-            OnPointChange.Invoke(Point);
+            PowerUpLoad();
+        }
+
+        protected override void PowerUpLoad()
+        {
+            base.PowerUpLoad();
+            _player.SetSpeedBonus(_speedBonusPower);
         }
 
         public void RotationObject()
@@ -67,7 +74,7 @@ namespace GeekBrains
 
         public override void Execute()
         {
-            if (!IsInterectable)
+            if (IsInterectable)
             {
                 return;
             }

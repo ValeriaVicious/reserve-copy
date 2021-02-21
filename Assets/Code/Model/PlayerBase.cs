@@ -20,20 +20,6 @@ namespace GeekBrains
         #endregion
 
 
-        #region ClassLifeCycles
-
-        public PlayerBase(float speed)
-        {
-            Speed = speed;
-        }
-
-        public PlayerBase()
-        {
-        }
-
-        #endregion
-
-
         #region Methods
 
         public abstract void Move(float x, float y, float z);

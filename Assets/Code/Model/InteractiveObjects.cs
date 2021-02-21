@@ -49,6 +49,11 @@ namespace GeekBrains
 
         protected abstract void Interaction();
 
+        protected virtual void PowerUpLoad()
+        {
+
+        }
+
         public void Action()
         {
             _color = Random.ColorHSV();

@@ -74,11 +74,12 @@ namespace GeekBrains
 
         public override void Execute()
         {
-            if (IsInterectable)
+            if (!IsInterectable)
             {
                 return;
             }
             Flay();
+            Flicker();
             RotationObject();
         }
 

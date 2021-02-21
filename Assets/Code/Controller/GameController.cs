@@ -12,7 +12,7 @@ namespace GeekBrains
         private ListExecuteObject _interactiveObject;
         private DisplayEndGame _displayEndGame;
         private DisplayBonuses _displayBonuses;
-        private DisplayWonGame _displayWon; 
+        private DisplayWonGame _displayWon;
         private CameraController _cameraController;
         private InputController _inputController;
         private Reference _reference;
@@ -62,17 +62,7 @@ namespace GeekBrains
 
         private void Update()
         {
-            for (var i = 0; i < _interactiveObject.Length; i++)
-            {
-                var interactiveObject = _interactiveObject[i];
-
-                if (interactiveObject == null)
-                {
-                    continue;
-                }
-                interactiveObject.Execute();
-            }
-
+            DrawningObjects();
             _displayBonuses.Display(_coin.Point);
             CheckCountPoint();
         }
@@ -104,6 +94,20 @@ namespace GeekBrains
                     coins.OnPointChange -= _displayBonuses.Display;
                 }
                 Destroy(gameObject);
+            }
+        }
+
+        private void DrawningObjects()
+        {
+            for (var i = 0; i < _interactiveObject.Length; i++)
+            {
+                var interactiveObject = _interactiveObject[i];
+
+                if (interactiveObject == null)
+                {
+                    continue;
+                }
+                interactiveObject.Execute();
             }
         }
 

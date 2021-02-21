@@ -36,9 +36,8 @@ namespace GeekBrains
             }
             else
             {
-                Interaction();
                 IsInterectable = false;
-                Destroy(gameObject);
+                Interaction();
             }
         }
 

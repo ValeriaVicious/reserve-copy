@@ -30,6 +30,11 @@ namespace GeekBrains
             }
         }
 
+        #endregion
+
+
+        #region Methods
+
         public void AddExecuteObject(IExecute execute)
         {
             if (_interactiveObjects == null)
@@ -43,11 +48,6 @@ namespace GeekBrains
             Array.Resize(ref _interactiveObjects, Length + 1);
             _interactiveObjects[Length - 1] = execute;
         }
-
-        #endregion
-
-
-        #region Methods
 
         public IExecute this[int index]
         {

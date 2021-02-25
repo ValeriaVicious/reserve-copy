@@ -8,9 +8,6 @@ namespace GeekBrains
         #region Fields
 
         private Rigidbody _rigidBody;
-        public delegate void OnCoinTake(int totalCoins);
-        public event OnCoinTake CoinTake;
-        private int _coinsCollected;
 
         #endregion
 
@@ -27,15 +24,14 @@ namespace GeekBrains
 
         #region Methods
 
-        public override void Move(float x, float y, float z)
+        public void SetSpeedBonus(float speedMultiplier)
         {
-            _rigidBody.AddForce(new Vector3(x,y,z) * Speed);
+            Speed *= speedMultiplier;
         }
 
-        public void TakeCoin()
+        public override void Move(float x, float y, float z)
         {
-            _coinsCollected++;
-            CoinTake.Invoke(_coinsCollected);
+            _rigidBody.AddForce(new Vector3(x, y, z) * Speed);
         }
 
         #endregion

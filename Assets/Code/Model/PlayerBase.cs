@@ -3,7 +3,7 @@
 
 namespace GeekBrains
 {
-    public abstract class PlayerBase : Character
+    public abstract class PlayerBase : MonoBehaviour
     {
         #region Properties
 
@@ -17,24 +17,6 @@ namespace GeekBrains
         public const string HorizontalInput = "Horizontal";
         public const string VerticalInput = "Vertical";
 
-        #endregion
-
-
-        #region ClassLifeCycles
-
-        public PlayerBase(float speed)
-        {
-            Speed = speed;
-        }
-
-        public PlayerBase()
-        {
-        }
-
-        #endregion
-
-
-        #region UnityMethods
         #endregion
 
 

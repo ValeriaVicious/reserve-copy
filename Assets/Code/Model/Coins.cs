@@ -17,7 +17,6 @@ namespace GeekBrains
         private float _lengthFlay;
         private float _minRange = 1.0f;
         private float _maxRange = 5.0f;
-        private int _valueOfBonus = 5;
 
         #endregion
 
@@ -34,6 +33,7 @@ namespace GeekBrains
         {
             if (other.CompareTag(PlayerTag))
             {
+                Point++;
                 Log("I'm here");
                 Interaction();
                 Destroy(gameObject);
@@ -59,13 +59,12 @@ namespace GeekBrains
 
         protected override void Interaction()
         {
-            _valueOfBonus++;
             OnPointChange?.Invoke(Point);
         }
 
         public override void Execute()
         {
-            if (!IsInterectable)
+            if (IsInterectable)
             {
                 return;
             }

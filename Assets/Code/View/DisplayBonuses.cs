@@ -29,11 +29,8 @@ namespace GeekBrains
 
         public void Display(int value)
         {
-            //PlayerBall.CoinTake += OnPlayerCoinsChanged;
             _coinLabel.text = $"Coins: {value}";
         }
-
-        private void OnPlayerCoinsChanged(int totalCoins) => _coinLabel.text = totalCoins.ToString();
 
         #endregion
     }

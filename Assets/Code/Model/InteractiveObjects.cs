@@ -20,6 +20,7 @@ namespace GeekBrains
         private void Start()
         {
             IsInterectable = true;
+            _color = Random.ColorHSV();
             if (TryGetComponent(out Renderer renderer))
             {
                 renderer.material.color = _color;
@@ -29,12 +30,15 @@ namespace GeekBrains
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!IsInterectable || other.CompareTag(PlayerTag))
+            if (!IsInterectable || !other.CompareTag(PlayerTag))
             {
                 return;
             }
-            Interaction();
-            IsInterectable = false;
+            else
+            {
+                IsInterectable = false;
+                Interaction();
+            }
         }
 
         #endregion
@@ -44,11 +48,17 @@ namespace GeekBrains
 
         protected abstract void Interaction();
 
+        protected virtual void PowerUpLoad()
+        {
+
+        }
+
         public void Action()
         {
+            _color = Random.ColorHSV();
             if (TryGetComponent(out Renderer renderer))
             {
-                renderer.material.color = Random.ColorHSV();
+                renderer.material.color = _color;
             }
         }
 

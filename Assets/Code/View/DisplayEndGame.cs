@@ -28,7 +28,7 @@ namespace GeekBrains
 
         public void GameOver(string name, Color color)
         {
-            _finishGameLabel.text = $"Game Over! {name}";
+            _finishGameLabel.text = $"Game Over! {name} Color: {color}";
         }
 
         #endregion
